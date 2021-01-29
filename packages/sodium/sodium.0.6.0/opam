@@ -11,9 +11,9 @@ tags: "org:mirage"
 dev-repo: "git+https://github.com/dsheets/ocaml-sodium.git"
 build: [
   [make] {os != "freebsd"}
-  [make "CFLAGS=-I/usr/local/include -L/usr/local/lib"] {os = "freebsd"}
+  [make "CFLAGS=-I/usr/local/include -I/opt/homebrew/include -L/usr/local/lib -L/opt/homebrew/lib"] {os = "freebsd"}
   [make "test"] {with-test & os != "freebsd"}
-  [make "CFLAGS=-I/usr/local/include -L/usr/local/lib" "test"]
+  [make "CFLAGS=I/usr/local/include -I/opt/homebrew/include -L/usr/local/lib -L/opt/homebrew/lib" "test"]
     {with-test & os = "freebsd"}
 ]
 install: [
